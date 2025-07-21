@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐱 Magic Cat Party! 🎉</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">🐱✨ Magic Cat Party! ✨🐱</h1>
+        
+        <!-- Background animations container -->
+        <div class="background-animations" id="backgroundAnimations"></div>
+        
+        <!-- Confetti canvas -->
+        <canvas id="confettiCanvas"></canvas>
+        
+        <!-- Cat gif display area -->
+        <div class="cat-display" id="catDisplay"></div>
+        
+        <!-- Music controls -->
+        <div class="music-controls">
+            <button id="musicToggle" class="music-btn">🎵</button>
+        </div>
+        
+        <!-- Game buttons -->
+        <div class="button-grid">
+            <button class="game-btn meow-btn" data-action="meow">
+                <span class="btn-icon">🐱</span>
+                <span class="btn-label">Meow!</span>
+            </button>
+            
+            <button class="game-btn party-btn" data-action="party">
+                <span class="btn-icon">🎉</span>
+                <span class="btn-label">Party!</span>
+            </button>
+            
+            <button class="game-btn rainbow-btn" data-action="rainbow">
+                <span class="btn-icon">🌈</span>
+                <span class="btn-label">Rainbow!</span>
+            </button>
+            
+            <button class="game-btn balloon-btn" data-action="balloons">
+                <span class="btn-icon">🎈</span>
+                <span class="btn-label">Balloons!</span>
+            </button>
+            
+            <button class="game-btn cupcake-btn" data-action="cupcake">
+                <span class="btn-icon">🧁</span>
+                <span class="btn-label">Cupcake!</span>
+            </button>
+            
+            <button class="game-btn rocket-btn" data-action="rocket">
+                <span class="btn-icon">🚀</span>
+                <span class="btn-label">Blast Off!</span>
+            </button>
+            
+            <!-- Easter egg button -->
+            <button class="game-btn secret-btn" data-action="secret">
+                <span class="btn-icon">✨</span>
+                <span class="btn-label">Magic!</span>
+            </button>
+        </div>
+    </div>
+    
+    <!-- Hidden audio elements -->
+    <audio id="backgroundMusic" loop>
+        <source src="assets/background-music.mp3" type="audio/mpeg">
+    </audio>
+    
+    <audio id="meowSound">
+        <source src="assets/meow.mp3" type="audio/mpeg">
+    </audio>
+    
+    <audio id="boingSound">
+        <source src="assets/boing.mp3" type="audio/mpeg">
+    </audio>
+    
+    <audio id="cheerSound">
+        <source src="assets/cheer.mp3" type="audio/mpeg">
+    </audio>
+    
+    <audio id="popSound">
+        <source src="assets/pop.mp3" type="audio/mpeg">
+    </audio>
+    
+    <audio id="whooshSound">
+        <source src="assets/whoosh.mp3" type="audio/mpeg">
+    </audio>
+    
+    <audio id="magicSound">
+        <source src="assets/magic.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
