@@ -2,97 +2,129 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🐱 Magic Cat Party! 🎉</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Magic Cat Party</title>
+    <meta name="description" content="A tap-and-giggle party toy for little kids: big buttons set off confetti, balloons to pop, bubbles, a rainbow, stars, a cat parade and a dance party.">
+    <meta name="theme-color" content="#FFF5E6">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&display=swap">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1 class="title">🐱✨ Magic Cat Party! ✨🐱</h1>
-        
-        <!-- Background animations container -->
-        <div class="background-animations" id="backgroundAnimations"></div>
-        
-        <!-- Confetti canvas -->
-        <canvas id="confettiCanvas"></canvas>
-        
-        <!-- Cat gif display area -->
-        <div class="cat-display" id="catDisplay"></div>
-        
-        <!-- Music controls -->
-        <div class="music-controls">
-            <button id="musicToggle" class="music-btn">🎵</button>
-        </div>
-        
-        <!-- Game buttons -->
-        <div class="button-grid">
-            <button class="game-btn meow-btn" data-action="meow">
-                <span class="btn-icon">🐱</span>
-                <span class="btn-label">Meow!</span>
-            </button>
-            
-            <button class="game-btn party-btn" data-action="party">
-                <span class="btn-icon">🎉</span>
-                <span class="btn-label">Party!</span>
-            </button>
-            
-            <button class="game-btn rainbow-btn" data-action="rainbow">
-                <span class="btn-icon">🌈</span>
-                <span class="btn-label">Rainbow!</span>
-            </button>
-            
-            <button class="game-btn balloon-btn" data-action="balloons">
-                <span class="btn-icon">🎈</span>
-                <span class="btn-label">Balloons!</span>
-            </button>
-            
-            <button class="game-btn cupcake-btn" data-action="cupcake">
-                <span class="btn-icon">🧁</span>
-                <span class="btn-label">Cupcake!</span>
-            </button>
-            
-            <button class="game-btn rocket-btn" data-action="rocket">
-                <span class="btn-icon">🚀</span>
-                <span class="btn-label">Blast Off!</span>
-            </button>
-            
-            <!-- Easter egg button -->
-            <button class="game-btn secret-btn" data-action="secret">
-                <span class="btn-icon">✨</span>
-                <span class="btn-label">Magic!</span>
-            </button>
-        </div>
-    </div>
-    
-    <!-- Hidden audio elements -->
-    <audio id="backgroundMusic" loop>
-        <source src="assets/background-music.mp3" type="audio/mpeg">
-    </audio>
-    
-    <audio id="meowSound">
-        <source src="assets/meow.mp3" type="audio/mpeg">
-    </audio>
-    
-    <audio id="boingSound">
-        <source src="assets/boing.mp3" type="audio/mpeg">
-    </audio>
-    
-    <audio id="cheerSound">
-        <source src="assets/cheer.mp3" type="audio/mpeg">
-    </audio>
-    
-    <audio id="popSound">
-        <source src="assets/pop.mp3" type="audio/mpeg">
-    </audio>
-    
-    <audio id="whooshSound">
-        <source src="assets/whoosh.mp3" type="audio/mpeg">
-    </audio>
-    
-    <audio id="magicSound">
-        <source src="assets/magic.mp3" type="audio/mpeg">
-    </audio>
+    <svg width="0" height="0" class="sprite" aria-hidden="true" focusable="false">
+        <defs>
+            <symbol id="i-paw" viewBox="0 0 24 24"><path d="M12 13.5c-3 0-5.5 2.6-5.5 4.8 0 1.6 1.3 2.2 2.6 2.2 1.2 0 1.9-.6 2.9-.6s1.7.6 2.9.6c1.3 0 2.6-.6 2.6-2.2 0-2.2-2.5-4.8-5.5-4.8z"/><ellipse cx="5.5" cy="10.5" rx="1.8" ry="2.3"/><ellipse cx="9.3" cy="6" rx="1.8" ry="2.4"/><ellipse cx="14.7" cy="6" rx="1.8" ry="2.4"/><ellipse cx="18.5" cy="10.5" rx="1.8" ry="2.3"/></symbol>
+            <symbol id="i-popper" viewBox="0 0 24 24"><path d="M3.5 20.5l4.8-12 7.2 7.2z"/><path d="M6 14.5l3.5 3.5"/><path d="M13 3.5c.8 1.5.2 3-1 4"/><path d="M20.5 11c-1.5-.8-3-.2-4 1"/><path d="M17 3.5l.6 1.6"/><path d="M20.5 7l-1.6.6"/><circle cx="16.5" cy="7.5" r=".6"/></symbol>
+            <symbol id="i-balloon" viewBox="0 0 24 24"><path d="M12 2.8c3.6 0 6 2.8 6 6.3 0 4-3 7.4-6 7.4s-6-3.4-6-7.4c0-3.5 2.4-6.3 6-6.3z"/><path d="M10.8 16.5h2.4l-1.2 1.6z"/><path d="M12 18.1c-1.3 1.2 1.1 2 0 3.4"/><path d="M9 6.8c.4-1 1.1-1.6 2-1.9"/></symbol>
+            <symbol id="i-bubbles" viewBox="0 0 24 24"><circle cx="9" cy="14" r="6"/><circle cx="17.5" cy="7" r="3.5"/><circle cx="18" cy="17.5" r="2"/><path d="M6 12.2c.4-1.2 1.3-2 2.4-2.3"/></symbol>
+            <symbol id="i-rainbow" viewBox="0 0 24 24"><path d="M2.5 18a9.5 9.5 0 0 1 19 0"/><path d="M6 18a6 6 0 0 1 12 0"/><path d="M9.5 18a2.5 2.5 0 0 1 5 0"/></symbol>
+            <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3l2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 16.8l-5.4 2.9 1.1-6.1-4.5-4.2 6.1-.8z"/></symbol>
+            <symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 21V3.5"/><path d="M5 4.5h12.5l-3 4 3 4H5"/></symbol>
+            <symbol id="i-disco" viewBox="0 0 24 24"><path d="M12 2v3"/><circle cx="12" cy="13" r="8"/><path d="M4 13h16"/><path d="M12 5c-2.5 2.2-2.5 13.8 0 16"/><path d="M12 5c2.5 2.2 2.5 13.8 0 16"/><path d="M5.6 8.5h12.8"/><path d="M5.6 17.5h12.8"/></symbol>
+            <symbol id="i-moon" viewBox="0 0 24 24"><path d="M19.5 14.5A8 8 0 0 1 9.5 4.5a8 8 0 1 0 10 10z"/><path d="M17 3.5v3"/><path d="M15.5 5h3"/></symbol>
+            <symbol id="i-sound" viewBox="0 0 24 24"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M15.5 9a4 4 0 0 1 0 6"/><path d="M18.3 6.5a7.5 7.5 0 0 1 0 11"/></symbol>
+            <symbol id="i-sound-off" viewBox="0 0 24 24"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M16 9.5l5 5"/><path d="M21 9.5l-5 5"/></symbol>
+            <symbol id="i-music" viewBox="0 0 24 24"><path d="M9 17.5V5.5l10-2v12"/><circle cx="6.5" cy="17.5" r="2.5"/><circle cx="16.5" cy="15.5" r="2.5"/></symbol>
+            <symbol id="i-music-off" viewBox="0 0 24 24"><path d="M9 17.5V5.5l10-2v12"/><circle cx="6.5" cy="17.5" r="2.5"/><circle cx="16.5" cy="15.5" r="2.5"/><path d="M3.5 3.5l17 17"/></symbol>
+        </defs>
+    </svg>
 
-    <script src="script.js"></script>
+    <header class="top">
+        <div class="brand">
+            <svg class="logo" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+                <path d="M11 22 12 7l11 8" fill="#FF7AAE" stroke="#FF7AAE" stroke-width="3" stroke-linejoin="round"/>
+                <path d="M37 22 36 7l-11 8" fill="#FF7AAE" stroke="#FF7AAE" stroke-width="3" stroke-linejoin="round"/>
+                <ellipse cx="24" cy="28" rx="16" ry="13.5" fill="#FF7AAE"/>
+                <path d="M19 13 25.5 0.5 31 13z" fill="#FFD23F" stroke="#FFD23F" stroke-width="2" stroke-linejoin="round"/>
+                <circle cx="25.5" cy="2" r="2.4" fill="#3DD6C3"/>
+                <path d="M41 36.5l1.2 2.6 2.6 1.2-2.6 1.2-1.2 2.6-1.2-2.6-2.6-1.2 2.6-1.2z" fill="#6A45E0"/>
+            </svg>
+            <h1>Magic Cat Party</h1>
+        </div>
+        <div class="tools">
+            <button class="tool calm" id="calmBtn" type="button" aria-keyshortcuts="0 Escape" aria-label="Calm down, clear everything" title="Calm down (0 or Esc)">
+                <svg aria-hidden="true"><use href="#i-moon"/></svg>
+            </button>
+            <button class="tool" id="musicBtn" type="button" aria-keyshortcuts="N" aria-pressed="true" aria-label="Music" title="Music on or off (N)">
+                <svg aria-hidden="true"><use href="#i-music"/></svg>
+            </button>
+            <button class="tool" id="soundBtn" type="button" aria-keyshortcuts="M" aria-pressed="true" aria-label="Sound" title="Sound on or off (M)">
+                <svg aria-hidden="true"><use href="#i-sound"/></svg>
+            </button>
+        </div>
+    </header>
+
+    <main class="room">
+        <section class="stage" id="stage" aria-label="Party room">
+            <svg class="bunting" viewBox="0 0 400 40" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+                <path d="M0 6 Q200 26 400 6" fill="none" stroke="#2A1846" stroke-opacity=".35" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+                <path d="M14 8.4l18 1.6-7 16z" fill="#FF7AAE"/>
+                <path d="M54 12.4l18 1.4-8 15.6z" fill="#FFD23F"/>
+                <path d="M94 15.4l18 1-8.6 15.6z" fill="#3DD6C3"/>
+                <path d="M134 17.4l18 .6-9 15.6z" fill="#B49BFF"/>
+                <path d="M174 18.6l18 .2-9 15.8z" fill="#FFA24D"/>
+                <path d="M214 18.8l18-.2-9 15.8z" fill="#6CC4FF"/>
+                <path d="M254 18l18-.6-9 15.6z" fill="#84DB6E"/>
+                <path d="M294 16.4l18-1-9.4 15.6z" fill="#FF8F85"/>
+                <path d="M334 13.8l18-1.4-10 15.6z" fill="#FF7AAE"/>
+                <path d="M374 10l18-1.6-10.4 15.6z" fill="#FFD23F"/>
+            </svg>
+            <div class="cloud cloud-a" aria-hidden="true"></div>
+            <div class="cloud cloud-b" aria-hidden="true"></div>
+            <div class="rug" aria-hidden="true"></div>
+            <div class="stage-fx" id="stageFx" aria-hidden="true"></div>
+            <div class="cast" id="cast"></div>
+        </section>
+
+        <nav class="pad" aria-label="Party buttons">
+            <button class="fx-btn c-pink" type="button" data-fx="meow" data-key="1" aria-keyshortcuts="1">
+                <span class="badge"><svg aria-hidden="true"><use href="#i-paw"/></svg></span>
+                <span class="label">Meow</span>
+                <kbd aria-hidden="true">1</kbd>
+            </button>
+            <button class="fx-btn c-yellow" type="button" data-fx="confetti" data-key="2" aria-keyshortcuts="2">
+                <span class="badge"><svg aria-hidden="true"><use href="#i-popper"/></svg></span>
+                <span class="label">Confetti</span>
+                <kbd aria-hidden="true">2</kbd>
+            </button>
+            <button class="fx-btn c-sky" type="button" data-fx="balloons" data-key="3" aria-keyshortcuts="3">
+                <span class="badge"><svg aria-hidden="true"><use href="#i-balloon"/></svg></span>
+                <span class="label">Balloons</span>
+                <kbd aria-hidden="true">3</kbd>
+            </button>
+            <button class="fx-btn c-teal" type="button" data-fx="bubbles" data-key="4" aria-keyshortcuts="4">
+                <span class="badge"><svg aria-hidden="true"><use href="#i-bubbles"/></svg></span>
+                <span class="label">Bubbles</span>
+                <kbd aria-hidden="true">4</kbd>
+            </button>
+            <button class="fx-btn c-green" type="button" data-fx="rainbow" data-key="5" aria-keyshortcuts="5">
+                <span class="badge"><svg aria-hidden="true"><use href="#i-rainbow"/></svg></span>
+                <span class="label">Rainbow</span>
+                <kbd aria-hidden="true">5</kbd>
+            </button>
+            <button class="fx-btn c-orange" type="button" data-fx="stars" data-key="6" aria-keyshortcuts="6">
+                <span class="badge"><svg aria-hidden="true"><use href="#i-star"/></svg></span>
+                <span class="label">Stars</span>
+                <kbd aria-hidden="true">6</kbd>
+            </button>
+            <button class="fx-btn c-coral" type="button" data-fx="parade" data-key="7" aria-keyshortcuts="7">
+                <span class="badge"><svg aria-hidden="true"><use href="#i-flag"/></svg></span>
+                <span class="label">Parade</span>
+                <kbd aria-hidden="true">7</kbd>
+            </button>
+            <button class="fx-btn c-violet" type="button" data-fx="dance" data-key="8" aria-keyshortcuts="8" aria-pressed="false">
+                <span class="badge"><svg aria-hidden="true"><use href="#i-disco"/></svg></span>
+                <span class="label">Dance</span>
+                <kbd aria-hidden="true">8</kbd>
+            </button>
+        </nav>
+    </main>
+
+    <div class="screen-fx" id="screenFx" aria-hidden="true"></div>
+    <canvas class="particles" id="particles" aria-hidden="true"></canvas>
+
+    <script src="script.js" defer></script>
 </body>
 </html>
